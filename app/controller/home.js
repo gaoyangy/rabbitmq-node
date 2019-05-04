@@ -1,14 +1,18 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const server = require('../queue/consumer');
-const client = require('../queue/producer');
+const consumer = require('../queue/consumer');
+const producer = require('../queue/producer');
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
     ctx.body = 'hi, egg';
-    server.send()
-    client.send()
+    setTimeout(() => {
+      consumer.send()
+    }, 100)
+    setTimeout(() => {
+      producer.send()
+    }, 3000)
   }
 }
 

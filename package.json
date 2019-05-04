@@ -18,12 +18,15 @@
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "eslint-config-egg": "^7.1.0",
+    "nodemon": "^1.19.0"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "scripts": {
+    "pull": "nodemon ./app/queue/consumer.js",
+    "push": "nodemon ./app/queue/producer.js",
     "start": "egg-scripts start --daemon --title=egg-server-mq",
     "stop": "egg-scripts stop --title=egg-server-mq",
     "dev": "egg-bin dev",
