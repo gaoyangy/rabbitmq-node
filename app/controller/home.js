@@ -7,12 +7,8 @@ class HomeController extends Controller {
   async index() {
     const { ctx } = this;
     ctx.body = 'hi, egg';
-    setTimeout(() => {
-      consumer.send()
-    }, 100)
-    setTimeout(() => {
-      producer.send()
-    }, 3000)
+    consumer.pull();
+    producer.push();
   }
 }
 

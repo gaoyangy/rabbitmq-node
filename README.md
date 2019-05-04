@@ -11,6 +11,11 @@ see [egg docs][egg] for more detail.
 ### Development
 
 ```bash
+$ docker search rabbitmq:management
+$ docker pull rabbitmq:management
+$ docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:management
+// 打开http://127.0.0.1:15672 可以使用默认的账户登录，用户名和密码都guest
+
 $ npm i
 $ npm run dev
 $ open http://localhost:7001/

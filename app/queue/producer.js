@@ -1,6 +1,6 @@
 const amqplib = require('amqplib');
 
-exports.send = function() {
+exports.push = function() {
   amqplib.connect('amqp://localhost').then(async conn => {
     try {
       const channel = await conn.createChannel();

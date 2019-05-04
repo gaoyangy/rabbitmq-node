@@ -1,11 +1,11 @@
 'use strict';
 const amqplib = require('amqplib');
 
-exports.send = function() {
+exports.pull = function() {
     amqplib.connect('amqp://127.0.0.1').then(async conn => {
-        // process.once('SIGN',function(){
-        //     conn.close();
-        //   });
+        process.once('SIGN',function(){
+            conn.close();
+          });
         try {
             const channel = await conn.createChannel();
             await channel.assertQueue('/api', { durable: false });
